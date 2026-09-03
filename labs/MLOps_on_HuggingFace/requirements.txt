@@ -1,0 +1,36 @@
+# ==========================================================================
+# MLOps_on_HuggingFace — local development requirements
+# Install with:  make install   (creates .venv and installs this file)
+# or manually :  pip install -r requirements.txt
+# ==========================================================================
+
+# --- Hugging Face core ---
+transformers>=4.46
+datasets>=3.0
+evaluate>=0.4
+accelerate>=1.0        # required by Trainer.push_to_hub() in the fine-tuning labs
+huggingface_hub>=0.26  # provides the `hf` CLI (hf auth login, hf download, hf upload...)
+
+# --- Deep learning backend ---
+torch>=2.3
+torchvision>=0.18       # image transforms used in the ViT (vision) lab
+
+# --- Tokenizers needed by specific models ---
+sentencepiece>=0.2      # required by the T5 tokenizer (summarize-microservice)
+
+# --- Interfaces / serving ---
+gradio>=4.44            # Spaces: space/ (vision) and space_nlp/ (sentiment)
+fastapi==0.99.1         # summarize-microservice/webapp (version pinned by existing code)
+uvicorn>=0.30
+pydantic
+
+# --- Utilities ---
+numpy>=1.26
+Pillow>=10.0
+requests>=2.32
+python-dotenv>=1.0      # loads variables from .env for local scripts
+
+# --- Notebooks ---
+jupyterlab>=4.2
+ipykernel>=6.29
+ipywidgets>=8.1
