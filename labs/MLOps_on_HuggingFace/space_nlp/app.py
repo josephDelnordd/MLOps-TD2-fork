@@ -11,10 +11,10 @@ import gradio as gr
 from transformers import pipeline
 
 # 👉 À REMPLACER par votre propre repo (username/nom-du-modele)
-MODEL_ID = "YOUR_USERNAME/distilbert-sentiment-demo"
-# REVISION = "production"  # décommentez pour servir la version promue
+MODEL_ID = "DELNORD/distilbert-sentiment-demo"
+REVISION = "production"  # décommentez pour servir la version promue
 
-classifier = pipeline("sentiment-analysis", model=MODEL_ID, truncation=True)
+classifier = pipeline("sentiment-analysis", model=MODEL_ID, truncation=True, revision=REVISION)
 
 
 def predict(text):
